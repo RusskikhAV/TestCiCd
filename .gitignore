@@ -1,5 +1,9 @@
+.idea/*
 target/
 allure-results/
 *.log
 *.iml
-.idea/*
+*.xml
+
+#
+logs/api_tests.log
