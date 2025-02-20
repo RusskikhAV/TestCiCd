@@ -11,6 +11,7 @@ pipeline {
         stage('Example Test') {
             steps {
                 echo 'Allure reports'
+                bat 'allure --version'
                 bat 'allure serve'
             }
         }
