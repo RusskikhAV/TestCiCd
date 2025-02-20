@@ -1,16 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('Example Build') {
+        stage('Run tests with API tags') {
             steps {
-                echo 'Hello, Maven'
-                bat 'mvn --version'
+                echo 'Run tests'
+                bat 'mvn test -Dgroups='Api''
             }
         }
         stage('Example Test') {
             steps {
-                echo 'Hello, JDK'
-                bat 'java -version'
+                echo 'Allure reports'
+                bat 'allure -serve'
             }
         }
     }
