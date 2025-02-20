@@ -1,10 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Run tests with API tag') {
+        stage('periodically triggers') {
             steps {
                 echo 'Run tests'
-                bat "mvn test -Dgroups='Api'"
+                bat "mvn clean test'"
             }
         }
         stage('Allure Report') {
