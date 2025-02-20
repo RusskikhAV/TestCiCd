@@ -1,22 +1,16 @@
 pipeline {
     agent any
-    stages {
-        stage('Run tests with API tag') {
-            steps {
-                echo 'Run tests'
-                bat "mvn test -Dgroups='Api'"
+        stages {
+            stage('Example Build') {
+                steps {
+                echo 'Hello, Maven'
+                bat 'mvn --version'
+                }
             }
-        }
-        stage('Allure Report') {
-            steps {
-                echo 'create allure reports'
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']]
-                ])
+            stage('Example Test') {
+                steps {
+                echo 'Hello, JDK'
+                bat 'java -version'
             }
         }
     }
