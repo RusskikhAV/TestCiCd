@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('2,4,6 * * * *') {
+        stage('10,12,14 * * * *') {
         steps {
             echo 'Запускаем тесты каждую 2, 4, 6-ю минуты'
             bat "mvn clean test"
