@@ -4,7 +4,7 @@ pipeline {
         stage('periodically triggers') {
             steps {
                 echo 'Run tests'
-                bat "mvn clean test'"
+                bat "mvn clean test"
             }
         }
         stage('Allure Report') {
