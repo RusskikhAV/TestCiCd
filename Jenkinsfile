@@ -3,8 +3,10 @@ pipeline {
 
     stages {
         stage('2,4,6 * * * *') {
+        steps {
             echo 'Запускаем тесты каждую 2, 4, 6-ю минуты'
             bat "mvn clean test"
+            }
         }
         stage('Allure Report') {
             steps {
