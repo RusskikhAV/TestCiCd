@@ -1,22 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Clean and Install') {
-            steps {
-                 echo 'Run clean and install'
-                 bat "mvn clean install"
-            }
-        }
-        stage('Run tests with API tags') {
+        stage('Run tests with API tag') {
             steps {
                 echo 'Run tests'
-                bat "mvn clean install"
                 bat "mvn test -Dgroups='Api'"
             }
         }
         stage('Allure Report') {
             steps {
-                echo 'allure reports'
+                echo 'create allure reports'
                 allure([
                     includeProperties: false,
                     jdk: '',

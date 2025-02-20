@@ -22,21 +22,30 @@ pipeline {
 }
 ```
 Далее запуск теста находящегося в test\java\api\google\GoogleGetRequestTest.java
-Сам тест из себя ничего не представляет, просто get запрос
+Сам тест из себя ничего не представляет, просто get запрос с параметром 
+"q" = 'Google'
+
+Запуск сбора отчётности с помощью плагина allure в Jenkins
 ```
 pipeline {
     agent any
-    stages {
         stage('Run tests with API tags') {
             steps {
                 echo 'Run tests'
-                bat 'mvn test -Dgroups='Api''
+                bat "mvn clean install"
+                bat "mvn test -Dgroups='Api'"
             }
         }
-        stage('Example Test') {
+        stage('Allure Report') {
             steps {
-                echo 'Allure reports'
-                bat 'allure -serve'
+                echo 'allure reports'
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'target/allure-results']]
+                ])
             }
         }
     }
