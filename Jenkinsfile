@@ -4,7 +4,7 @@ pipeline {
         stage('Run tests with API tags') {
             steps {
                 echo 'Run tests'
-                bat 'mvn test -Dgroups='Api''
+                bat "mvn test -Dgroups='Api'"
             }
         }
         stage('Example Test') {
