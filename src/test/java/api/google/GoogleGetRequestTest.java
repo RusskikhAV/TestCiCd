@@ -33,7 +33,7 @@ public class GoogleGetRequestTest extends BaseApiTest {
         );
 
         assertAll(
-                () -> assertEquals(SC_OK, response.statusCode(), "INCORRECT_SC_MSG")
+                () -> assertEquals(SC_OK, response.statusCode(), "Что-то пошло не так")
         );
     }
 }
