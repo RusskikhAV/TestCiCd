@@ -1,0 +1,14 @@
+pipeline {
+    agent dockerfile true
+    stages {
+        stage('Test run wih docker') {
+            steps {
+                echo 'Run tests'
+                    sh '''
+                        node --version
+                        git --version
+                    '''
+            }
+        }
+    }
+}
