@@ -1,9 +1,11 @@
 package api.google;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("Api")
 public class ReadCredentialsFromJenkinsTest {
     private static final String EXPECTED_ACCESS_KEY = "admin";
     private static final String EXPECTED_SECRET_KEY = "admin2";
