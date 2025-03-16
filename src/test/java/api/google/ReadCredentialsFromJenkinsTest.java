@@ -25,6 +25,10 @@ public class ReadCredentialsFromJenkinsTest {
             System.out.println("❌ ERROR: AWS credentials are missing!");
             return false;
         }
+
+        System.out.println("accessKey: " + accessKey);
+        System.out.println("secretKey: " + secretKey);
+
         if (!accessKey.equals(EXPECTED_ACCESS_KEY) || !secretKey.equals(EXPECTED_SECRET_KEY)) {
             System.out.println("❌ ERROR: AWS credentials are incorrect!");
             return false;
