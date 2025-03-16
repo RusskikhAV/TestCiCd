@@ -1,22 +1,13 @@
 pipeline {
     agent any
+    environment {
+        login = credentials('login')
+        password = credentials('password')
+    }
     stages {
-        stage('Run tests with API tag') {
+        stage('Run Tests') {
             steps {
-                echo 'Run tests'
-                bat "mvn test -Dgroups='Api'"
-            }
-        }
-        stage('Allure Report') {
-            steps {
-                echo 'create allure reports'
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']]
-                ])
+                sh 'mvn clean test'
             }
         }
     }
