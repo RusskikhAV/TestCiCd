@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3.8.1-adoptopenjdk-11'
-                    args '-v C:/ProgramData/Jenkins/.jenkins/workspace/with_docker:/with_docker'
+                    args '-v /c/ProgramData/Jenkins/.jenkins/workspace/with_docker/'
                     }
             }
             steps {
